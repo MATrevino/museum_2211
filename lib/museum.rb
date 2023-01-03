@@ -21,9 +21,21 @@ class Museum
   def admit(patron)
     @patrons.push(patron)
   end
-  # def patrons_by_exhibit_interest
-  #   #returns hash[:exhibit] = [array of patrons interests in that exhibit]
-  # end
+
+  def patrons_by_exhibit_interest
+    interest_hash = {}
+    keys = @exhibits.map do |exhibit|
+      exhibit.name
+  
+    require 'pry';binding.pry
+    @patrons.each do |patron|
+      if patron.interests.include?(exhibit.name)
+            interest_hash[keys] = patron.name
+          end
+      end 
+    end
+  end
+  
 
   # def ticket_lottery_contestants
   #   #returns an array of patrons that do not have enough money but are interested in exhibit
